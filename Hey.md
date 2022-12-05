@@ -1,1 +1,1 @@
-#[guarda che bel tutorial]([[linkurl](https://youtu.be/RGOj5yH7evk)])
+#[guarda che bel tutorial](https://youtu.be/RGOj5yH7evk)
