@@ -4,7 +4,7 @@ import javax.swing.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+ 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -41,6 +41,10 @@ class Window extends JFrame {
     Image scaleImg8 = img8.getImage().getScaledInstance(120, 50, Image.SCALE_DEFAULT);
     private JLabel p8;
 
+    private ImageIcon playerImg = new ImageIcon("./img/player.png");
+    Image scalePlayer = playerImg.getImage().getScaledInstance(53, 40, Image.SCALE_DEFAULT);
+    private JLabel ply;
+
     public Window() {
         init();
     }
@@ -48,49 +52,67 @@ class Window extends JFrame {
     public void init() {
         setLayout(null);
         setSize(1100, 900);
-        p1 = new JLabel(new ImageIcon(scaleImg1));
-        p2 = new JLabel(new ImageIcon(scaleImg2));
-        p3 = new JLabel(new ImageIcon(scaleImg3));
-        p4 = new JLabel(new ImageIcon(scaleImg4));
-        p5 = new JLabel(new ImageIcon(scaleImg5));
-        p6 = new JLabel(new ImageIcon(scaleImg6));
-        p7 = new JLabel(new ImageIcon(scaleImg7));
-        p8 = new JLabel(new ImageIcon(scaleImg8));
 
-        JLabel[] labels = {p1, p2, p3, p4, p5, p6, p7, p8};
+        JLabel[] labels = new JLabel[8];
+        labels[0] = p1 = new JLabel(new ImageIcon(scaleImg1));
+        labels[1] = p2 = new JLabel(new ImageIcon(scaleImg2));
+        labels[2] = p3 = new JLabel(new ImageIcon(scaleImg3));
+        labels[3] = p4 = new JLabel(new ImageIcon(scaleImg4));
+        labels[4] = p5 = new JLabel(new ImageIcon(scaleImg5));
+        labels[5] = p6 = new JLabel(new ImageIcon(scaleImg6));
+        labels[6] = p7 = new JLabel(new ImageIcon(scaleImg7));
+        labels[7] = p8 = new JLabel(new ImageIcon(scaleImg8));
+
+        ply = new JLabel(new ImageIcon(scalePlayer));
+
         int width = 120;
         int height = 120;
+        int Y = 0;
         int x = 0;
-        int y = 0;
+        
+        //-------------------------------------
+        //La laybel è più grande delle immagini
+        //-------------------------------------
+
         for (int i=0; i<labels.length; i++) {
             labels[i].setSize(width, height);
-            labels[i].setLocation(x, y+=60);
+            labels[i].setLocation(x, Y+=60);
             add(labels[i]);
         }
+
+        ply.setSize(53, 40);
+        ply.setLocation(x, 600);
+        add(ply);
+
+
         startGame(); 
-        show();
+        setVisible(true);
     }
 
     void startGame() {
-        int X = 0;
+        int Y = 0;
         Enemy[] enemies = new Enemy[8];
-        enemies[0] = new Enemy(p1, X+=60, 0);
-        enemies[1] = new Enemy(p2, X+=60, 0);
-        enemies[2] = new Enemy(p3, X+=60, 0);
-        enemies[3] = new Enemy(p4, X+=60, 0);
-        enemies[4] = new Enemy(p5, X+=60, 0);
-        enemies[5] = new Enemy(p6, X+=60, 0);
-        enemies[6] = new Enemy(p7, X+=60, 0);
-        enemies[7] = new Enemy(p8, X+=60, 0);
+        enemies[0] = new Enemy(p1, Y+=60, 0);
+        enemies[1] = new Enemy(p2, Y+=60, 0);
+        enemies[2] = new Enemy(p3, Y+=60, 0);
+        enemies[3] = new Enemy(p4, Y+=60, 0);
+        enemies[4] = new Enemy(p5, Y+=60, 0);
+        enemies[5] = new Enemy(p6, Y+=60, 0);
+        enemies[6] = new Enemy(p7, Y+=60, 0);
+        enemies[7] = new Enemy(p8, Y+=60, 0);
+
+        Player giocatore = new Player(ply, 0, 600);
 
         for (int i=0; i<enemies.length; i++) {
             enemies[i].start();
         }
+
+        giocatore.start();
     }
 
-    public void keyTyped(KeyEvent e) {
+    /*public void keyTyped() {
         // Invoked when a key has been typed.
-    }
+    }*/
 
     public void keyPressed(KeyEvent e) {
         // Invoked when a key has been pressed.

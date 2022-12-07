@@ -1,7 +1,27 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.swing.JLabel;
+
 public class Player extends Thread {
+    JLabel lable;
+    int spdX;
+    int spdY;
+    int x;
+    int y;
+
+    public Player(JLabel lable, int posX, int posY, int speedX, int speedY) {
+        this.lable = lable;
+        this.x = posX;
+        this.y = posY;
+        this.spdX = speedX;
+        this.spdY = speedY;
+
+    }
+
+
+
+
     public void keyTyped(KeyEvent e) {
         // Invoked when a key has been typed.
     }
