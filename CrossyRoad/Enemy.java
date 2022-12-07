@@ -9,21 +9,19 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Enemy extends Thread{
-    private int nGiri;
     JLabel label;
     int posY;
     int posX;
 
-    Enemy(int giri, JLabel label, int posY, int posX) {
-    nGiri = giri;
-    this.label = label;
-    this.posY = posY;
-    this.posX = posX;
+    Enemy(JLabel label, int posY, int posX) {
+        this.label = label;
+        this.posY = posY;
+        this.posX = posX;
     }
 
     public void run() {
         Random r = new Random();
-        for (int j=0; j<nGiri; j++) {
+        while (true) {
             for (int i = 0; i < 1000; i++) {
                 //if (KeyEvent.VK_ENTER == 10) Window.pause = !Window.pause;
                 try {
