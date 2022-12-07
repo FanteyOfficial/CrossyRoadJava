@@ -5,6 +5,9 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 class Window extends JFrame {
     private ImageIcon img1 = new ImageIcon("./img/enemy1.png");
     Image scaleImg1 = img1.getImage().getScaledInstance(75, 40, Image.SCALE_DEFAULT);
@@ -54,39 +57,17 @@ class Window extends JFrame {
         p7 = new JLabel(new ImageIcon(scaleImg7));
         p8 = new JLabel(new ImageIcon(scaleImg8));
 
-        p1.setSize(120, 120);
-        p1.setLocation(0, 60);
-
-        p2.setSize(120, 120);
-        p2.setLocation(0, 120);
-
-        p3.setSize(120, 120);
-        p3.setLocation(0, 180);
-
-        p4.setSize(120, 120);
-        p4.setLocation(0, 240);
-
-        p5.setSize(120, 120);
-        p5.setLocation(0, 300);
-
-        p6.setSize(120, 120);
-        p6.setLocation(0, 360);
-
-        p7.setSize(120, 120);
-        p7.setLocation(0, 420);
-
-        p8.setSize(120, 120);
-        p8.setLocation(0, 480);
-
-        add(p1);
-        add(p2);
-        add(p3);
-        add(p4);
-        add(p5);
-        add(p6);
-        add(p7);
-        add(p8);
-        startGame();
+        JLabel[] labels = {p1, p2, p3, p4, p5, p6, p7, p8};
+        int width = 120;
+        int height = 120;
+        int x = 0;
+        int y = 0;
+        for (int i=0; i<labels.length; i++) {
+            labels[i].setSize(width, height);
+            labels[i].setLocation(x, y+=60);
+            add(labels[i]);
+        }
+        startGame(); 
         show();
     }
 
@@ -105,5 +86,20 @@ class Window extends JFrame {
         for (int i=0; i<enemies.length; i++) {
             enemies[i].start();
         }
+    }
+
+    public void keyTyped(KeyEvent e) {
+        // Invoked when a key has been typed.
+    }
+
+    public void keyPressed(KeyEvent e) {
+        // Invoked when a key has been pressed.
+        if (e.getKeyCode() == KeyEvent.VK_W) {
+            System.out.println("Premuto");
+        }
+    }
+
+    public void keyReleased(KeyEvent e) {
+        // Invoked when a key has been released.
     }
 }
