@@ -4,4 +4,4 @@
 
 [Guarda che bel tutorial](https://youtu.be/RGOj5yH7evk)
 
-#Sesso
+Down Top; Procedural levels; Infinite (high score)
