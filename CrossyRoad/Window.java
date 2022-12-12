@@ -101,7 +101,7 @@ class Window extends JFrame {
         enemies[6] = new Enemy(p7, Y+=60, 0);
         enemies[7] = new Enemy(p8, Y+=60, 0);
 
-        Player giocatore = new Player(ply, 0, 600);
+        Player giocatore = new Player(ply, 0, 600, 0, 0);
 
         for (int i=0; i<enemies.length; i++) {
             enemies[i].start();
