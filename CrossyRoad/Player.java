@@ -1,9 +1,9 @@
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.*;
+import java.awt.event.*;
 
 import javax.swing.JLabel;
 
-public class Player extends Thread {
+public class Player extends Thread implements KeyListener {
     JLabel lable;
     int spdX;
     int spdY;
@@ -19,22 +19,25 @@ public class Player extends Thread {
 
     }
 
-    public void keyTyped(KeyEvent e) {
-        // Invoked when a key has been typed.
-    }
 
-    public void keyPressed(KeyEvent e) {
-        // Invoked when a key has been pressed.
-        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-            System.out.println("Premuto");
+    public void keyPressed (KeyEvent e) {
+        e = e || window.event;
+
+        if (e.keyCode == '38') {
+            this.y -= this.spdY;
+        }
+        else if (e.keyCode == '40') {
+            this.y += this.spdY;
+        }
+        else if (e.keyCode == '37') {
+            this.x -= this.spdX;
+        }
+        else if (e.keyCode == '39') {
+            this.x = this.spdX;
         }
     }
 
-    public void keyReleased(KeyEvent e) {
-        // Invoked when a key has been released.
-    }
-
     public void run() {
-        
+        keyPressed(null);
     }
 }

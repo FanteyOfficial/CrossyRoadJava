@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-class Window extends JFrame {
+class Window extends JFrame implements KeyListener{
     private ImageIcon img1 = new ImageIcon("./img/enemy1.png");
     Image scaleImg1 = img1.getImage().getScaledInstance(75, 40, Image.SCALE_DEFAULT);
     private JLabel p1;
@@ -80,10 +80,13 @@ class Window extends JFrame {
             add(labels[i]);
         }
 
+        this.addKeyListener(this);
+
         ply.setSize(53, 40);
         ply.setLocation(x, 600);
         add(ply);
 
+        setFocusable(true);
 
         startGame(); 
         setVisible(true);
@@ -114,12 +117,23 @@ class Window extends JFrame {
         // Invoked when a key has been typed.
     }*/
 
-    public void keyPressed(KeyEvent e) {
-        // Invoked when a key has been pressed.
-        if (e.getKeyCode() == KeyEvent.VK_W) {
-            System.out.println("Premuto");
+    public void keyPressed (KeyEvent e) {
+        e = e || window.event;
+
+        if (e.getKeyCode() == 38) {
+            giocatore.y -= giocatore.spdY;
+        }
+        else if (e.getKeyCode() == 40) {
+            giocatore.y += giocatore.spdY;
+        }
+        else if (e.getKeyCode() == 37) {
+            giocatore.x -= giocatore.spdX;
+        }
+        else if (e.getKeyCode() == 39) {
+            thgiocatoreis.x = giocatore.spdX;
         }
     }
+
 
     public void keyReleased(KeyEvent e) {
         // Invoked when a key has been released.
