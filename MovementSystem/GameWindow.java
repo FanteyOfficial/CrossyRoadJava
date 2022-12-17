@@ -67,7 +67,7 @@ public class GameWindow extends JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                if (!(getBounds().width - Player.posY - 20 < 0))
+                if (!(Player.posY - 20 < 0))
                     Player.posY -= 20;
                 playerLabel.setLocation(Player.posX, Player.posY);
             }
@@ -94,7 +94,8 @@ public class GameWindow extends JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                Player.posY += 20;
+                if (Player.posY + 20 < getBounds().getSize().height - 200)
+                    Player.posY += 20;
                 playerLabel.setLocation(Player.posX, Player.posY);
             }
         });
@@ -120,7 +121,8 @@ public class GameWindow extends JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                Player.posX -= 20;
+                if (!(Player.posX - 20 < 0))
+                    Player.posX -= 20;
                 playerLabel.setLocation(Player.posX, Player.posY);
             }
         });
@@ -146,7 +148,8 @@ public class GameWindow extends JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                Player.posX += 20;
+                if (Player.posX + 20 < getBounds().getSize().width - 100)
+                    Player.posX += 20;
                 playerLabel.setLocation(Player.posX, Player.posY);
             }
         });
