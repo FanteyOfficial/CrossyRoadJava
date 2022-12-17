@@ -19,12 +19,7 @@ public class GameWindow extends JFrame {
 
     private JLabel playerLabel = new JLabel(new ImageIcon("./img/player.png"));
 
-    private int playerX, playerY;
-
     public GameWindow() {
-        playerX = Player.posX;
-        playerY = Player.posY;
-
         backButton = new JButton("Main Menu");
         backButton.setBorderPainted(false);
         backButton.setBackground(Color.ORANGE);
@@ -72,8 +67,9 @@ public class GameWindow extends JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                Player.posY -= 20;
-                playerLabel.setLocation(playerX, Player.posY);
+                if (!(getBounds().width - Player.posY - 20 < 0))
+                    Player.posY -= 20;
+                playerLabel.setLocation(Player.posX, Player.posY);
             }
         });
 
@@ -99,7 +95,7 @@ public class GameWindow extends JFrame {
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Player.posY += 20;
-                playerLabel.setLocation(playerX, Player.posY);
+                playerLabel.setLocation(Player.posX, Player.posY);
             }
         });
 
@@ -125,7 +121,7 @@ public class GameWindow extends JFrame {
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Player.posX -= 20;
-                playerLabel.setLocation(Player.posX, playerY);
+                playerLabel.setLocation(Player.posX, Player.posY);
             }
         });
 
@@ -151,7 +147,7 @@ public class GameWindow extends JFrame {
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Player.posX += 20;
-                playerLabel.setLocation(Player.posX, playerY);
+                playerLabel.setLocation(Player.posX, Player.posY);
             }
         });
         
