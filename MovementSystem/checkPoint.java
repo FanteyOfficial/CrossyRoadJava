@@ -1,4 +1,3 @@
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class CheckPoint extends Thread {

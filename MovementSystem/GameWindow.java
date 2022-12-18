@@ -1,16 +1,10 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
-import java.awt.event.WindowListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.awt.Cursor;
-import java.awt.event.KeyListener;
 
 public class GameWindow extends JFrame {
     private JButton backButton;

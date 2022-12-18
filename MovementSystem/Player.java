@@ -1,8 +1,3 @@
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
-import javax.swing.JLabel;
-
 public class Player /* extends Thread */ /* implements KeyListener */ {
     /* JLabel lable;
     int spdX;
