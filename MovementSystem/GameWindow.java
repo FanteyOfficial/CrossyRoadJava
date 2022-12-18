@@ -17,6 +17,8 @@ public class GameWindow extends JFrame {
 
     private JLabel playerLabel = new JLabel(new ImageIcon("./img/chicken.png"));
 
+    private String[][] enemyInformationArr; // [[EnemyImage, enemySizeWidth, enemySizeHeight, speed, formLeft], [...], [...]]
+
     public GameWindow() {
         backButton = new JButton("Main Menu");
         backButton.setBorderPainted(false);
