@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,9 +8,8 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.Cursor;
 
-public class GameWindow extends JFrame {
+public class GameWindow extends JFrame implements KeyListener{
     private JButton backButton;
-
     private JButton upButton, rightButton, leftButton, downButton;
 
     private JLabel checkPointLabel;
@@ -25,6 +26,7 @@ public class GameWindow extends JFrame {
         backButton.setBackground(Color.ORANGE);
         backButton.setForeground(Color.BLACK);
         backButton.setFocusPainted(false);
+        backButton.addKeyListener(this);
         //startButton.setContentAreaFilled(false);
         backButton.addActionListener(toMenu);
         backButton.addMouseListener(new MouseAdapter() {
@@ -72,7 +74,7 @@ public class GameWindow extends JFrame {
                 playerLabel.setLocation(Player.posX, Player.posY);
             }
         });
-
+        
         downButton.setBorderPainted(false);
         downButton.setBackground(Color.ORANGE);
         downButton.setForeground(Color.BLACK);
@@ -229,6 +231,7 @@ public class GameWindow extends JFrame {
         }
     };
 
+
     /* ActionListener toUp = new ActionListener() {
         public void actionPerformed(ActionEvent evt) {
             playerY += 10;
@@ -247,4 +250,68 @@ public class GameWindow extends JFrame {
         public void keyReleased(KeyEvent e) {
         }   
      } */
+    
+    public void vaIndietro(){
+        //devo modificare la posizione Y +1
+        if (Player.posY + 5 < getBounds().getSize().height - 150){
+                    Player.posY += 5;
+                playerLabel.setLocation(Player.posX, Player.posY);
+            }
+    }
+
+    public void vaAvanti(){
+        //devo modificare la posizione Y -1
+        if (!(Player.posY - 5 < 0)){
+                    Player.posY -= 5;
+                playerLabel.setLocation(Player.posX, Player.posY);
+            }
+    }
+
+    public void vaDestra(){
+        //devo modificare X +1
+        
+            if (Player.posX + 5 < getBounds().getSize().width - 120){
+                Player.posX += 5;
+            playerLabel.setLocation(Player.posX, Player.posY);
+        }
+    }
+
+    public void vaSinistra(){
+        if (!(Player.posX - 20 < 0)){
+            Player.posX -= 5;
+            playerLabel.setLocation(Player.posX, Player.posY);
+        }
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        // TODO Auto-generated method stub
+        switch(e.getKeyCode()){
+            case 87:
+                vaAvanti();
+                break;
+            case 83:
+                vaIndietro();
+                break;
+            case 65:
+                vaSinistra();
+                break;
+            case 68:
+                vaDestra();
+                break;
+        }
+        
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        // TODO Auto-generated method stub
+        
+    }
 }

@@ -1,4 +1,4 @@
-public class Player /* extends Thread */ /* implements KeyListener */ {
+public class Player extends Thread{
     /* JLabel lable;
     int spdX;
     int spdY;
@@ -21,6 +21,7 @@ public class Player /* extends Thread */ /* implements KeyListener */ {
     public static void resetPoints() {
         points = 0;
     }
+
 
     //Player(int startPosX, int startPosY/* JLabel lable, int posX, int posY, int speedX, int speedY *//* , GameWindow window */) {
         /* this.lable = lable;
@@ -60,4 +61,5 @@ public class Player /* extends Thread */ /* implements KeyListener */ {
     //public void run() {
         /* new Player(lable, x, y, x, y, win); */
     //}
+
 }
