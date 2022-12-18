@@ -221,6 +221,8 @@ public class GameWindow extends JFrame {
 
     ActionListener toMenu = new ActionListener() {
         public void actionPerformed(ActionEvent evt) {
+            Player.resetPosition();
+            Player.resetPoints();
             dispose();
             StartMenu w = new StartMenu();
             w.setVisible(true);

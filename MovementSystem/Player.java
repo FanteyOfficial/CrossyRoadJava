@@ -18,6 +18,10 @@ public class Player /* extends Thread */ /* implements KeyListener */ {
         posY = startPosY;
     }
 
+    public static void resetPoints() {
+        points = 0;
+    }
+
     //Player(int startPosX, int startPosY/* JLabel lable, int posX, int posY, int speedX, int speedY *//* , GameWindow window */) {
         /* this.lable = lable;
         this.x = posX;
