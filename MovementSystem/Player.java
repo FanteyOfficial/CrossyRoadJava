@@ -11,10 +11,12 @@ public class Player /* extends Thread */ /* implements KeyListener */ {
     int y; */
     //GameWindow win;
 
-    public static int posX = 450;
-    public static int posY = 680;
-    public static int startPosX = 450;
-    public static int startPosY = 680;
+    public static int posX = 470;
+    public static int posY = 700;
+    public static int startPosX = 470;
+    public static int startPosY = 700;
+
+    public static int points = 0;
 
     public static void resetPosition() {
         posX = startPosX;

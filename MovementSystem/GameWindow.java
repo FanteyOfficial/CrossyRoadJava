@@ -17,7 +17,11 @@ public class GameWindow extends JFrame {
 
     private JButton upButton, rightButton, leftButton, downButton;
 
-    private JLabel playerLabel = new JLabel(new ImageIcon("./img/player.png"));
+    private JLabel checkPointLabel;
+    private JLabel startPointLabel;
+    private JLabel playerPointsLabel;
+
+    private JLabel playerLabel = new JLabel(new ImageIcon("./img/chicken.png"));
 
     public GameWindow() {
         backButton = new JButton("Main Menu");
@@ -94,7 +98,7 @@ public class GameWindow extends JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                if (Player.posY + 20 < getBounds().getSize().height - 200)
+                if (Player.posY + 20 < getBounds().getSize().height - 150)
                     Player.posY += 20;
                 playerLabel.setLocation(Player.posX, Player.posY);
             }
@@ -153,7 +157,17 @@ public class GameWindow extends JFrame {
                 playerLabel.setLocation(Player.posX, Player.posY);
             }
         });
+
+        checkPointLabel = new JLabel();
+        checkPointLabel.setBackground(Color.GREEN);
+        checkPointLabel.setOpaque(true);
+
+        startPointLabel = new JLabel();
+        startPointLabel.setBackground(Color.ORANGE);
+        startPointLabel.setOpaque(true);
         
+        playerPointsLabel = new JLabel("Points: " + Player.points);
+
         // new Player(playerLabel, 250, 250, 10, 10, this);
         
         //playerLabel.addKeyListener();
@@ -164,13 +178,18 @@ public class GameWindow extends JFrame {
     public void init() {
         setLayout(null);
         setSize(1100, 900);
+        setLocationRelativeTo(null);
+        setTitle("CROSSY ROAD");
         setResizable(false);
         getContentPane().setBackground(Color.GRAY);
+
+        CheckPoint c = new CheckPoint(checkPointLabel, playerLabel, playerPointsLabel);
+        c.start();
 
         backButton.setSize(100, 50);
         backButton.setLocation(5, 5);
 
-        playerLabel.setSize(100, 175);
+        playerLabel.setSize(100, 100);
         playerLabel.setLocation(Player.startPosX, Player.startPosY);
 
         upButton.setSize(100, 50);
@@ -181,13 +200,25 @@ public class GameWindow extends JFrame {
         leftButton.setLocation(780, 50);
         rightButton.setSize(100, 50);
         rightButton.setLocation(980, 50);
+
+        checkPointLabel.setSize(300, 100);
+        checkPointLabel.setLocation(getBounds().getSize().width / 3, 0);
+
+        startPointLabel.setSize(300, 100);
+        startPointLabel.setLocation(getBounds().getSize().width / 3, getBounds().getSize().height - 200);
         
+        playerPointsLabel.setSize(100, 50);
+        playerPointsLabel.setLocation(150, 0);
+
         add(backButton);
         add(playerLabel);
         add(upButton);
         add(downButton);
         add(leftButton);
         add(rightButton);
+        add(checkPointLabel);
+        add(startPointLabel);
+        add(playerPointsLabel);
         
         setVisible(true);
     }

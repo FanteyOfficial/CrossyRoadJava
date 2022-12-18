@@ -1,19 +1,27 @@
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class checkPoint extends Thread {
+public class CheckPoint extends Thread {
     JLabel checkPoint;
     JLabel player;
+    JLabel points;
 
-    checkPoint(JLabel checkPoint, JLabel player, Player val) {
+    CheckPoint(JLabel checkPoint, JLabel player, JLabel points) {
         this.checkPoint = checkPoint;
         this.player = player;
+        this.points = points;
     }
 
     public void run() {
-        if (player.getLocation() == checkPoint.getLocation()) {
-            Player.resetPosition();
-            player.setLocation(Player.startPosX, Player.startPosY);
+        /* System.out.println(checkPoint.getLocation()); */
+        while (true) { 
+            System.out.println(player.getLocation()); // senza questo non va per qualche motivo :)
+            if (Player.posY == checkPoint.getLocation().y && Player.posX <= 570 && Player.posX >= 370) {
+                Player.resetPosition();
+                Player.points++;
+                points.setText("Points: " + Player.points);
+                player.setLocation(Player.startPosX, Player.startPosY);
+            }
         }
     }
 }

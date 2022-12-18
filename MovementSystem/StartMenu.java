@@ -98,6 +98,8 @@ public class StartMenu extends JFrame {
 
     public void init() {
         setLayout(null);
+        setTitle("MAIN MENU");
+        /* setLocationRelativeTo(null); */ // allinea al centro
 
         // background window
         getContentPane().setBackground(Color.ORANGE);
