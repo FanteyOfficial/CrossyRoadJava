@@ -44,7 +44,6 @@ public class Enemy extends Thread {
                         w.setVisible(true);
                     }
                         
-                    }
                     try {
                         sleep(speed);
                     }
