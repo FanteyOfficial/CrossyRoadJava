@@ -6,7 +6,7 @@ public class StreetFunctions{
     JFrame winWin;
     JLabel[] street = new JLabel[8];
     int[] streetSpeed = new int[8];
-    int difficolta = 10;
+    int difficolta = 100000;
     JLabel player;
 
     Enemy[] enemy = new Enemy[1000];
