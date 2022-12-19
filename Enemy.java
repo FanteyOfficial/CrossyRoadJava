@@ -26,19 +26,23 @@ public class Enemy extends Thread {
             if (fromLeft) {
                 for (int i = 0; i < 1000; i++) {
                     System.out.println(player.getLocation());
-                    if(this.enemyLabel.getLocation().y >= Player.posY && this.enemyLabel.getLocation().y + 50 <= Player.posY && this.enemyLabel.getLocation().y >= Player.posX && this.enemyLabel.getLocation().x + enemyLabel.getWidth() >= Player.posX){
+                    if( player.getLocation().y >= this.enemyLabel.getLocation().y && player.getLocation().y <= this.enemyLabel.getLocation().y + 60 &&
+                        player.getLocation().x >= this.enemyLabel.getLocation().x && player.getLocation().x <= this.enemyLabel.getLocation().x + this.enemyLabel.getWidth()
+                        ||
+                        player.getLocation().y + 49 >= this.enemyLabel.getLocation().y && player.getLocation().y + 49 <= this.enemyLabel.getLocation().y + 60 &&
+                        player.getLocation().x >= this.enemyLabel.getLocation().x && player.getLocation().x <= this.enemyLabel.getLocation().x + this.enemyLabel.getWidth()
+                        ||
+                        player.getLocation().y + 49 >= this.enemyLabel.getLocation().y && player.getLocation().y + 49<= this.enemyLabel.getLocation().y + 60 &&
+                        player.getLocation().x + 49 >= this.enemyLabel.getLocation().x && player.getLocation().x + 49 <= this.enemyLabel.getLocation().x + this.enemyLabel.getWidth()
+                        ||
+                        player.getLocation().y >= this.enemyLabel.getLocation().y && player.getLocation().y <= this.enemyLabel.getLocation().y + 60 &&
+                        player.getLocation().x + 49 >= this.enemyLabel.getLocation().x && player.getLocation().x + 49 <= this.enemyLabel.getLocation().x + this.enemyLabel.getWidth()){
                         Player.resetPosition();
                         Player.resetPoints();
                         schermo.dispose();
                         StartMenu w = new StartMenu();
                         w.setVisible(true);
                     }
-                    //if (KeyEvent.VK_ENTER == 10) Window.pause = !Window.pause;
-                    try {
-                        sleep(1);
-                        //if (KeyEvent.VK_ENTER == 10) Window.pause = !Window.pause;
-                    }
-                    catch (Exception error) {
                         
                     }
                     try {
@@ -47,6 +51,7 @@ public class Enemy extends Thread {
                     catch (Exception e) {
                         System.out.println("error");
                     }
+
                     enemyLabel.setLocation(i, enemyLabel.getLocation().y);
                     System.out.println(true + " posizione " + i);
                 }
@@ -54,27 +59,31 @@ public class Enemy extends Thread {
             else {
                 for (int i = 1000; i > 0; i--) {
                     System.out.println(player.getLocation());
-                    if(this.enemyLabel.getLocation().y >= Player.posY && this.enemyLabel.getLocation().y + 50 <= Player.posY && this.enemyLabel.getLocation().y >= Player.posX && this.enemyLabel.getLocation().x + enemyLabel.getWidth() >= Player.posX){
+                    if( player.getLocation().y >= this.enemyLabel.getLocation().y && player.getLocation().y <= this.enemyLabel.getLocation().y + 60 &&
+                        player.getLocation().x >= this.enemyLabel.getLocation().x && player.getLocation().x <= this.enemyLabel.getLocation().x + this.enemyLabel.getWidth()
+                        ||
+                        player.getLocation().y + 49 >= this.enemyLabel.getLocation().y && player.getLocation().y + 49 <= this.enemyLabel.getLocation().y + 60 &&
+                        player.getLocation().x >= this.enemyLabel.getLocation().x && player.getLocation().x <= this.enemyLabel.getLocation().x + this.enemyLabel.getWidth()
+                        ||
+                        player.getLocation().y + 49 >= this.enemyLabel.getLocation().y && player.getLocation().y + 49<= this.enemyLabel.getLocation().y + 60 &&
+                        player.getLocation().x + 49 >= this.enemyLabel.getLocation().x && player.getLocation().x + 49 <= this.enemyLabel.getLocation().x + this.enemyLabel.getWidth()
+                        ||
+                        player.getLocation().y >= this.enemyLabel.getLocation().y && player.getLocation().y <= this.enemyLabel.getLocation().y + 60 &&
+                        player.getLocation().x + 49 >= this.enemyLabel.getLocation().x && player.getLocation().x + 49 <= this.enemyLabel.getLocation().x + this.enemyLabel.getWidth()){
                         Player.resetPosition();
                         Player.resetPoints();
                         schermo.dispose();
                         StartMenu w = new StartMenu();
                         w.setVisible(true);
                     }
-                    //if (KeyEvent.VK_ENTER == 10) Window.pause = !Window.pause;
-                    try {
-                        sleep(1);
-                        //if (KeyEvent.VK_ENTER == 10) Window.pause = !Window.pause;
-                    }
-                    catch (Exception error) {
-                        
-                    }
+
                     try {
                         sleep(speed);
                     }
                     catch (Exception e) {
                         System.out.println("error");
                     }
+                    
                     enemyLabel.setLocation(i, enemyLabel.getLocation().y);
                     System.out.println(false + " posizione " + i);
                 }
