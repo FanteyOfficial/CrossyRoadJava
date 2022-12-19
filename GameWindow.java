@@ -9,7 +9,7 @@ import java.awt.event.MouseAdapter;
 import java.io.IOException;
 import java.awt.Cursor;
 
-public class GameWindow extends JFrame /* implements KeyListener */{
+public class GameWindow extends JFrame implements KeyListener{
     private JButton backButton;
 
     private JButton upButton, rightButton, leftButton, downButton;
@@ -29,6 +29,7 @@ public class GameWindow extends JFrame /* implements KeyListener */{
         backButton.setBackground(Color.ORANGE);
         backButton.setForeground(Color.BLACK);
         backButton.setFocusPainted(false);
+        backButton.addKeyListener(this);
         //startButton.setContentAreaFilled(false);
         backButton.addActionListener(toMenu);
         backButton.addMouseListener(new MouseAdapter() {
@@ -253,7 +254,7 @@ public class GameWindow extends JFrame /* implements KeyListener */{
         }
     };
 
-    /* public void vaIndietro(){
+    public void vaIndietro(){
         //devo modificare la posizione Y +1
         if (Player.posY + 5 < getBounds().getSize().height - 150){
                     Player.posY += 5;
@@ -283,9 +284,9 @@ public class GameWindow extends JFrame /* implements KeyListener */{
             Player.posX -= 5;
             playerLabel.setLocation(Player.posX, Player.posY);
         }
-    } */
+    }
 
-    /* @Override
+    @Override
     public void keyPressed(KeyEvent e) {
         // TODO Auto-generated method stub
         switch(e.getKeyCode()){
@@ -315,7 +316,7 @@ public class GameWindow extends JFrame /* implements KeyListener */{
     public void keyTyped(KeyEvent e) {
         // TODO Auto-generated method stub
         
-    } */
+    }
 
     /* ActionListener toUp = new ActionListener() {
         public void actionPerformed(ActionEvent evt) {
