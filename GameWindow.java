@@ -220,10 +220,10 @@ public class GameWindow extends JFrame implements KeyListener{
 
         add(backButton);
         add(playerLabel);
-        add(upButton);
+        /* add(upButton);
         add(downButton);
         add(leftButton);
-        add(rightButton);
+        add(rightButton); */
         add(checkPointLabel);
         add(startPointLabel);
         add(playerPointsLabel);
