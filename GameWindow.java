@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
+import java.security.Key;
 import java.awt.Cursor;
 
 public class GameWindow extends JFrame implements KeyListener{
@@ -196,7 +197,7 @@ public class GameWindow extends JFrame implements KeyListener{
         backButton.setSize(100, 50);
         backButton.setLocation(5, 5);
 
-        playerLabel.setSize(100, 100);
+        playerLabel.setSize(49, 49);
         playerLabel.setLocation(Player.startPosX, Player.startPosY);
 
         upButton.setSize(100, 50);
@@ -256,7 +257,7 @@ public class GameWindow extends JFrame implements KeyListener{
     public void vaIndietro(){
         //devo modificare la posizione Y +1
         if (Player.posY + 5 < getBounds().getSize().height - 150){
-                    Player.posY += 5;
+                    Player.posY += 10;
                 playerLabel.setLocation(Player.posX, Player.posY);
             }
     }
@@ -264,7 +265,7 @@ public class GameWindow extends JFrame implements KeyListener{
     public void vaAvanti(){
         //devo modificare la posizione Y -1
         if (!(Player.posY - 5 < 0)){
-                    Player.posY -= 5;
+                    Player.posY -= 10;
                 playerLabel.setLocation(Player.posX, Player.posY);
             }
     }
@@ -273,14 +274,14 @@ public class GameWindow extends JFrame implements KeyListener{
         //devo modificare X +1
         
             if (Player.posX + 5 < getBounds().getSize().width - 120){
-                Player.posX += 5;
+                Player.posX += 10;
             playerLabel.setLocation(Player.posX, Player.posY);
         }
     }
 
     public void vaSinistra(){
         if (!(Player.posX - 20 < 0)){
-            Player.posX -= 5;
+            Player.posX -= 10;
             playerLabel.setLocation(Player.posX, Player.posY);
         }
     }
@@ -292,13 +293,25 @@ public class GameWindow extends JFrame implements KeyListener{
             case 87:
                 vaAvanti();
                 break;
+            case KeyEvent.VK_UP:
+                vaAvanti();
+                break;
             case 83:
+                vaIndietro();
+                break;
+            case KeyEvent.VK_DOWN:
                 vaIndietro();
                 break;
             case 65:
                 vaSinistra();
                 break;
+            case KeyEvent.VK_LEFT:
+                vaSinistra();
+                break;
             case 68:
+                vaDestra();
+                break;
+            case KeyEvent.VK_RIGHT:
                 vaDestra();
                 break;
         }

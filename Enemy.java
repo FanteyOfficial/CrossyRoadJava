@@ -1,7 +1,3 @@
-import java.util.*;
-import java.lang.Math;
-import java.util.Random;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
@@ -42,6 +38,7 @@ public class Enemy extends Thread {
                         schermo.dispose();
                         StartMenu w = new StartMenu();
                         w.setVisible(true);
+                        GameWindow.streetFunctions.stopEnemy();
                     }
                         
                     try {
@@ -74,6 +71,7 @@ public class Enemy extends Thread {
                         schermo.dispose();
                         StartMenu w = new StartMenu();
                         w.setVisible(true);
+                        GameWindow.streetFunctions.stopEnemy();
                     }
 
                     try {

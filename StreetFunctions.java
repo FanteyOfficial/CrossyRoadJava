@@ -1,6 +1,3 @@
-import java.math.*;
-import java.lang.Thread;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,14 +13,14 @@ public class StreetFunctions{
     JLabel[] enemyLabel = new JLabel[1000];
     int nEnemy;
 
-    String[][] enemyInformationArr = {{"./img/enemy1.png", "75", "50", "true"},
-                                      {"./img/enemy2.png", "100", "50", "false"},
-                                      {"./img/enemy3.png", "75", "50", "true"},
-                                      {"./img/enemy4.png", "100", "50", "false"},
-                                      {"./img/enemy5.png", "75", "50", "true"},
-                                      {"./img/enemy6.png", "100", "50", "false"},
-                                      {"./img/enemy7.png", "75", "50", "true"},
-                                      {"./img/enemy8.png", "100", "50", "false"}};
+    String[][] enemyInformationArr = {{"./img/enemy1.png", "107", "50", "true"},
+                                      {"./img/enemy2.png", "169", "50", "true"},
+                                      {"./img/enemy3.png", "96", "50", "true"},
+                                      {"./img/enemy4.png", "87", "50", "true"},
+                                      {"./img/enemy5.png", "169", "50", "false"},
+                                      {"./img/enemy6.png", "95", "40", "false"},
+                                      {"./img/enemy7.png", "79", "38", "true"},
+                                      {"./img/enemy8.png", "95", "46", "true"}};
 
 
     StreetFunctions (JFrame winFrame, JLabel player){
